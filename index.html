@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE Masterclass: The Success Blueprint | Divine Success Flow</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --dark: #1a1a2e;
+            --darker: #0f0f1a;
+            --accent: #E63946;
+            --green: #2ECC71;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--darker);
+            color: white;
+            line-height: 1.6;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2d1f3d 50%, #1a1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+        .container { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        .hero h1 span { color: var(--gold); }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+        
+        .highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .highlight-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(46, 204, 113, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 0.9rem;
+        }
+        
+        /* Registration Card */
+        .reg-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+        }
+        .reg-card h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .reg-card .free-tag {
+            text-align: center;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            background: rgba(0,0,0,0.3);
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .form-group input::placeholder { color: #666; }
+        
+        .cta-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), #B8960C);
+            color: var(--dark);
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 10px;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+        .secure-note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .countdown-container {
+            background: rgba(230, 57, 70, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .countdown-label { font-size: 0.9rem; color: #ccc; margin-bottom: 8px; }
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .countdown-item { text-align: center; }
+        .countdown-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .countdown-unit { font-size: 0.75rem; color: #888; }
+        
+        /* What You'll Learn */
+        .section {
+            padding: 80px 20px;
+        }
+        .section-dark { background: var(--dark); }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+        }
+        .section-title span { color: var(--gold); }
+        
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .learn-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .learn-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+        .learn-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .learn-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+        .learn-desc { color: #999; font-size: 0.95rem; }
+        
+        /* Host */
+        .host-section {
+            background: linear-gradient(135deg, #2d1f3d 0%, var(--dark) 100%);
+        }
+        .host-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        @media (max-width: 700px) {
+            .host-grid { grid-template-columns: 1fr; text-align: center; }
+        }
+        .host-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--gold);
+            background: linear-gradient(135deg, var(--gold), #B8960C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .host-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 5px; }
+        .host-title { color: var(--gold); margin-bottom: 15px; }
+        .host-bio { color: #aaa; }
+        
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .testimonial {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .testimonial-text {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .testimonial-name { font-weight: 600; }
+        .testimonial-role { font-size: 0.85rem; color: #888; }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--gold), #B8960C);
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .final-cta h2 { color: var(--dark); font-size: 2rem; margin-bottom: 20px; }
+        .final-cta p { color: var(--dark); opacity: 0.8; margin-bottom: 30px; font-size: 1.1rem; }
+        .final-cta .cta-btn {
+            background: var(--dark);
+            color: var(--gold);
+            display: inline-block;
+            width: auto;
+            padding: 18px 50px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Thank You State */
+        .thank-you { display: none; text-align: center; padding: 40px; }
+        .thank-you.active { display: block; }
+        .thank-you h2 { color: var(--green); font-size: 1.8rem; margin-bottom: 15px; }
+        .thank-you p { color: #ccc; margin-bottom: 25px; }
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
+        .whatsapp-btn:hover { transform: scale(1.05); }
+        
+        .form-state { transition: opacity 0.3s; }
+        .form-state.hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge">🎯 FREE LIVE MASTERCLASS</span>
+                    <h1>The <span>Success Blueprint</span>: How to 10x Your Results in 90 Days</h1>
+                    <p class="hero-subtitle">
+                        Discover the exact framework used by top performers to achieve breakthrough results — 
+                        and how you can apply it starting today.
+                    </p>
+                    
+                    <div class="highlights">
+                        <div class="highlight">
+                            <div class="highlight-icon">✓</div>
+                            <span>The #1 mindset shift that separates winners from wishers</span>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon">✓</div>
+                            <span>3-step action framework to achieve any goal</span>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon">✓</div>
+                            <span>How to eliminate self-sabotage and stay consistent</span>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-icon">✓</div>
+                            <span>Live Q&A — get your questions answered</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reg-card">
+                    <div class="form-state" id="formState">
+                        <h2>🔓 Reserve Your FREE Seat</h2>
+                        <p class="free-tag">100% FREE — Limited Spots Available</p>
+                        
+                        <div class="countdown-container">
+                            <div class="countdown-label">⏰ Masterclass starts in:</div>
+                            <div class="countdown">
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="days">02</div>
+                                    <div class="countdown-unit">DAYS</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="hours">14</div>
+                                    <div class="countdown-unit">HOURS</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="mins">37</div>
+                                    <div class="countdown-unit">MINS</div>
+                                </div>
+                                <div class="countdown-item">
+                                    <div class="countdown-value" id="secs">52</div>
+                                    <div class="countdown-unit">SECS</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form id="regForm" onsubmit="submitForm(event)">
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" id="name" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address *</label>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>WhatsApp Number *</label>
+                                <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label>What's your biggest challenge right now?</label>
+                                <select id="challenge">
+                                    <option value="">Select one...</option>
+                                    <option value="clarity">Lack of clarity on goals</option>
+                                    <option value="consistency">Staying consistent</option>
+                                    <option value="motivation">Motivation & mindset</option>
+                                    <option value="time">Time management</option>
+                                    <option value="income">Increasing income</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="cta-btn">🚀 RESERVE MY FREE SEAT</button>
+                        </form>
+                        <p class="secure-note">🔒 Your information is secure and will never be shared</p>
+                    </div>
+                    
+                    <div class="thank-you" id="thankYou">
+                        <div style="font-size: 4rem; margin-bottom: 20px;">🎉</div>
+                        <h2>You're Registered!</h2>
+                        <p>Check your email for the masterclass link.<br>Join our WhatsApp group for reminders:</p>
+                        <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" class="whatsapp-btn" target="_blank">
+                            <span style="font-size: 1.5rem;">📱</span>
+                            Join WhatsApp Group
+                        </a>
+                        <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
+                            Add this event to your calendar 📅
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What You'll Learn -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">What You'll <span>Discover</span></h2>
+            <div class="learn-grid">
+                <div class="learn-card">
+                    <div class="learn-icon">🧠</div>
+                    <h3 class="learn-title">Success Psychology</h3>
+                    <p class="learn-desc">Rewire your mind for automatic success habits and eliminate limiting beliefs holding you back.</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">🎯</div>
+                    <h3 class="learn-title">Goal Achievement System</h3>
+                    <p class="learn-desc">The proven 3-step framework to set, pursue, and achieve any goal in record time.</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">⚡</div>
+                    <h3 class="learn-title">Productivity Secrets</h3>
+                    <p class="learn-desc">How top performers get 10x more done without burnout or overwhelm.</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">💰</div>
+                    <h3 class="learn-title">Income Acceleration</h3>
+                    <p class="learn-desc">Practical strategies to increase your income and create multiple revenue streams.</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">🔄</div>
+                    <h3 class="learn-title">Breaking Patterns</h3>
+                    <p class="learn-desc">Identify and break the cycles of self-sabotage that keep you stuck.</p>
+                </div>
+                <div class="learn-card">
+                    <div class="learn-icon">🚀</div>
+                    <h3 class="learn-title">90-Day Action Plan</h3>
+                    <p class="learn-desc">Leave with a clear roadmap to achieve your biggest goals in the next 90 days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Host -->
+    <section class="section host-section">
+        <div class="container">
+            <h2 class="section-title">Meet Your <span>Host</span></h2>
+            <div class="host-grid">
+                <div class="host-avatar">👤</div>
+                <div class="host-info">
+                    <h3 class="host-name">Yashaswi</h3>
+                    <p class="host-title">Founder, Divine Success Flow</p>
+                    <p class="host-bio">
+                        Entrepreneur, AI strategist, and success coach helping individuals and businesses 
+                        unlock their potential through proven frameworks and cutting-edge technology. 
+                        Has helped 500+ students generate over $2.5M in combined results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">What Others <span>Say</span></h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"This masterclass completely changed my perspective. I implemented just one strategy and saw results within a week!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AK</div>
+                        <div>
+                            <div class="testimonial-name">Andrea K.</div>
+                            <div class="testimonial-role">Marketing Consultant</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Finally, a no-fluff approach to success. Yashaswi breaks down complex concepts into actionable steps."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RV</div>
+                        <div>
+                            <div class="testimonial-name">Rahul V.</div>
+                            <div class="testimonial-role">Business Coach</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"I was skeptical at first, but the value delivered was incredible. Highly recommend attending live!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MP</div>
+                        <div>
+                            <div class="testimonial-name">Michael P.</div>
+                            <div class="testimonial-role">Tech Consultant</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Results?</h2>
+            <p>Join hundreds of action-takers who are committed to success.</p>
+            <a href="#" class="cta-btn" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'}); return false;">
+                🎯 REGISTER NOW — IT'S FREE
+            </a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2026 Divine Success Flow | All Rights Reserved</p>
+        <p style="margin-top: 10px;">Questions? Email support@divinesuccessflow.com</p>
+    </footer>
+    
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Set masterclass date (adjust as needed)
+            const masterclassDate = new Date();
+            masterclassDate.setDate(masterclassDate.getDate() + 3);
+            masterclassDate.setHours(19, 0, 0, 0);
+            
+            const now = new Date();
+            const diff = masterclassDate - now;
+            
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('mins').textContent = String(mins).padStart(2, '0');
+                document.getElementById('secs').textContent = String(secs).padStart(2, '0');
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Form Submission
+        function submitForm(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                challenge: document.getElementById('challenge').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store locally (you can integrate with Google Sheets, Supabase, etc.)
+            const registrations = JSON.parse(localStorage.getItem('masterclass-regs') || '[]');
+            registrations.push(formData);
+            localStorage.setItem('masterclass-regs', JSON.stringify(registrations));
+            
+            // Show thank you
+            document.getElementById('formState').classList.add('hidden');
+            document.getElementById('thankYou').classList.add('active');
+            
+            // You can add webhook/API call here
+            console.log('Registration:', formData);
+        }
+    </script>
+</body>
+</html>
